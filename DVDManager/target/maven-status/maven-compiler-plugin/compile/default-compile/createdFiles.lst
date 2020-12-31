@@ -1,0 +1,9 @@
+com\mycompany\dvdmanager\data\DvDDao.class
+com\mycompany\dvdmanager\controllers\DvDController.class
+com\mycompany\dvdmanager\controllers\DvDControllerExceptionHandler.class
+com\mycompany\dvdmanager\data\DvDDatabaseDao$DvDMapper.class
+com\mycompany\dvdmanager\data\ToDoMapper.class
+com\mycompany\dvdmanager\App.class
+com\mycompany\dvdmanager\controllers\Error.class
+com\mycompany\dvdmanager\data\DvDDatabaseDao.class
+com\mycompany\dvdmanager\models\DvD.class
