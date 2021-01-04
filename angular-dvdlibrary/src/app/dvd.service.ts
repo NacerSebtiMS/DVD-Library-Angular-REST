@@ -8,7 +8,7 @@ export class DvdService {
 
   path = 'http://localhost:8080/';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   public getDvdById(dvdId: number) {
     const url = this.path + 'dvd/' + dvdId;

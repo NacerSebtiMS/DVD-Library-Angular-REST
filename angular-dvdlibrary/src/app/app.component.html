@@ -5,7 +5,7 @@
 
 <div *ngIf="this.router.url === '/'" class="container">
   <app-search-bar></app-search-bar>
-  <app-dvd-list></app-dvd-list>
+  <app-dvd-list [dvds]="dvds"></app-dvd-list>
 </div>
 
 
