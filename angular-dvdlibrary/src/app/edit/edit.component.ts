@@ -53,4 +53,9 @@ export class EditComponent implements OnInit {
     });
   }
 
+  valid(expr){
+    //return expr.match(this.yearPattern);
+    return new RegExp(this.yearPattern).test(expr);
+  }
+
 }

@@ -20,6 +20,8 @@ export class AddComponent implements OnInit {
 
   response;
 
+  year:number;
+
   dvd={
     "id": 0,
     "title": "",
@@ -47,6 +49,11 @@ export class AddComponent implements OnInit {
         response => console.log(response),
         err => console.log(err)
        );
+  }
+
+  valid(expr){
+    //return expr.match(this.yearPattern);
+    return new RegExp(this.yearPattern).test(expr);
   }
 
 }

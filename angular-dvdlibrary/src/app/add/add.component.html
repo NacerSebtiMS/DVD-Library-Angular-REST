@@ -30,12 +30,13 @@
               type="text"
               id="year"
               class="form-control"
-              ngModel
+              [(ngModel)]="year"
               name="year"
               maxlength="4" minlength="4"
               [pattern]="yearPattern"
               required>
           </div> <!-- DVD YEAR -->
+          <div [hidden]="!f.touched || valid(year)" class="alert alert-danger">Year must be a 4 digit number!</div>
 
           <!-- DVD DIRECTOR -->
           <div class="form-group">

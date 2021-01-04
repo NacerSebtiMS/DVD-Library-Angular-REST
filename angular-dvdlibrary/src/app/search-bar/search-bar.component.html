@@ -23,6 +23,7 @@
         <option value="director">Director </option>
         <option value="rating">Rating</option>
       </select>
+      
       <!-- CATEGORY -->
 
       <!-- TERM -->
@@ -37,4 +38,6 @@
 
     </form>
   </div> <!-- formInput -->
-  </div>
+</div>
+<div [hidden]="!displayCategory" class="alert alert-danger">Change the category!</div>
+<div [hidden]="!displayTerm" class="alert alert-danger">Search term is required!</div>

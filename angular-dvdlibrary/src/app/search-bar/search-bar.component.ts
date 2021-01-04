@@ -15,6 +15,9 @@ export class SearchBarComponent implements OnInit {
   defaultCategory = "default";
   defaultTerm = "Search Term";
 
+  displayCategory = false;
+  displayTerm = false;
+
   out = {
     "category": "",
     "term": ""
@@ -26,11 +29,16 @@ export class SearchBarComponent implements OnInit {
   }
 
   onSubmit() {
-    this.out = {
-      "category": this.signupForm.value.category,
-      "term": this.signupForm.value.term
-    };
-    this.selectedSearch.emit(this.out);
+    this.displayCategory = false;
+    if(this.signupForm.value.category === "default"){
+      this.displayCategory = true;
+    } else {
+      this.out = {
+        "category": this.signupForm.value.category,
+        "term": this.signupForm.value.term
+      };
+      this.selectedSearch.emit(this.out);
+    }
   }
 
 }
