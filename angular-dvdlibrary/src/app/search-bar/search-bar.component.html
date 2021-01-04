@@ -1,12 +1,41 @@
-<div class="text-center" id="form">
-  <button class="mx-sm-5" routerLink="/add">Create Dvd</button>
-  <button>Search</button>
-  <select name="searchTerm" class="mx-sm-3">
-    <option value="default">Search Category
-    <option value="title">Title
-    <option value="year">Release Year
-    <option value="director">Director 
-    <option value="rating">Rating
-  </select>
-  <input id="searchTerm" value="Search Term" class="align-right" />
-</div>
+<div class="row">
+<div class="col" id='formInput'>
+
+    <form (ngSubmit)="onSubmit()" #f="ngForm" class="form-inline">
+
+      <button class="mb-2 mr-sm-2 btn btn-secondary" routerLink="/add">Create Dvd</button>
+
+      <!-- SUBMIT -->
+      <button
+        class="btn btn-primary mb-2 mr-sm-2"
+        type="submit"
+        [disabled]="!f.valid">Submit</button>
+      <!-- SUBMIT -->
+
+      <!-- CATEGORY -->
+      <select
+        id="category"
+        class="form-control mb-2 mr-sm-2"
+        [ngModel]="defaultCategory"
+        name="category">
+        <option value="default">Search Category</option>
+        <option value="title">Title</option>
+        <option value="year">Release Year</option>
+        <option value="director">Director </option>
+        <option value="rating">Rating</option>
+      </select>
+      <!-- CATEGORY -->
+
+      <!-- TERM -->
+      <input
+        type="text"
+        id="term"
+        class="form-control mb-2 mr-sm-2"
+        [ngModel]="defaultTerm"
+        name="term"
+        required>
+      <!-- TERM -->
+
+    </form>
+  </div> <!-- formInput -->
+  </div>

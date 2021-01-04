@@ -4,10 +4,13 @@
 <button routerLink="">Home</button>
 
 <div *ngIf="this.router.url === '/'" class="container">
-  <app-search-bar></app-search-bar>
+
+  <app-search-bar (selectedSearch)="getSearch($event)"></app-search-bar>
+
   <app-dvd-list [dvds]="dvds"></app-dvd-list>
 </div>
 
+{{search | json}}
 
 
 <router-outlet></router-outlet>
