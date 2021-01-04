@@ -1,1 +1,45 @@
-<p>dvd-list works!</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Director</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let dvd of dvds" scope="row">
+
+      <td>
+        <a
+          href="#"
+          (click)="selectAction(dvd.id, 'details')"
+        >
+          {{ dvd.title }}
+        </a>
+      </td>
+
+      <td>{{ dvd.releaseYear }}</td>
+
+      <td>{{ dvd.directorName }}</td>
+
+      <td>{{ dvd.rating }}</td>
+
+      <td>
+        <a
+          href="#"
+          (click)="selectAction(dvd.id, 'edit')"
+        >Edit</a>
+        |
+        <a
+          href="#"
+          (click)="selectAction(dvd.id, 'delete')"
+        >Delete</a>
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>
