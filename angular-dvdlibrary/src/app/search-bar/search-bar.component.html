@@ -1,9 +1,8 @@
 <div class="row">
 <div class="col" id='formInput'>
 
-    <form (ngSubmit)="onSubmit()" #f="ngForm" class="form-inline">
-
-      <button class="mb-2 mr-sm-2 btn btn-secondary" routerLink="/add">Create Dvd</button>
+    <button type="button" class="my-3 mr-sm-3 btn btn-secondary float-left" routerLink="/add">Create Dvd</button>
+    <form (ngSubmit)="onSubmit()" #f="ngForm" class="form-inline float-right my">
 
       <!-- SUBMIT -->
       <button

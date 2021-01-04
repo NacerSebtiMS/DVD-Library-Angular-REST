@@ -10,7 +10,7 @@ import { DvdService } from './dvd.service';
 export class AppComponent implements OnInit {
   title = 'angular-dvdlibrary';
 
-  dvds = [];
+  dvds = this.getAll();
 
   search = {};
 
@@ -21,21 +21,50 @@ export class AppComponent implements OnInit {
   }
 
   getAll() {
+    this.dvds = [];
     this.dvdlibrary.getAllDvds().subscribe((response: any) => {
-      this.dvds = response;
+      if(Array.isArray(response)){
+          this.dvds = response;
+        } else {
+          this.dvds.push(response);
+        } 
     });
   }
 
   getSearch(search:JSON){
-    this.search = search;
+    this.dvds = [];
     if(search.category === "title"){
-      this.dvds = this.dvdlibrary.getDvdByTitle(search.term);
+      this.dvdlibrary.getDvdByTitle(search.term).subscribe((response:any) => {
+        if(Array.isArray(response)){
+          this.dvds = response;
+        } else {
+          this.dvds.push(response);
+        }      
+       });
     } else if(search.category === "year"){
-      this.dvds = this.dvdlibrary.getDvdByYear( parseInt(search.term) );
+      this.dvdlibrary.getDvdByYear(search.term).subscribe((response:any) => {
+        if(Array.isArray(response)){
+          this.dvds = response;
+        } else {
+          this.dvds.push(response);
+        } 
+       });
     } else if(search.category === "director"){
-      this.dvds = this.dvdlibrary.getDvdByDirector(search.term);
+      this.dvdlibrary.getDvdByDirector(search.term).subscribe((response:any) => {
+        if(Array.isArray(response)){
+          this.dvds = response;
+        } else {
+          this.dvds.push(response);
+        } 
+       });
     } else if(search.category === "rating"){
-      this.dvds = this.dvdlibrary.getDvdByRating(search.term);
+      this.dvdlibrary.getDvdByRating(search.term).subscribe((response:any) => {
+        if(Array.isArray(response)){
+          this.dvds = response;
+        } else {
+          this.dvds.push(response);
+        } 
+       });
     }
 
   }
