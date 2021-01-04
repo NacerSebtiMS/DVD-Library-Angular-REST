@@ -14,8 +14,7 @@
 
       <td>
         <a
-          href="#"
-          (click)="selectAction(dvd.id, 'details')"
+          [routerLink]="['/detail',dvd.id]"
         >
           {{ dvd.title }}
         </a>
@@ -29,13 +28,13 @@
 
       <td>
         <a
-          href="#"
-          (click)="selectAction(dvd.id, 'edit')"
+          routerLink="/edit"
+          
         >Edit</a>
         |
         <a
           href="#"
-          (click)="selectAction(dvd.id, 'delete')"
+          
         >Delete</a>
       </td>
 

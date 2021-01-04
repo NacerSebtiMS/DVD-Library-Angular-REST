@@ -3,7 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DetailComponent } from './detail.component';
 
-const routes: Routes = [{ path: '', component: DetailComponent }];
+const routes: Routes = [
+  {
+    path: '', component: DetailComponent
+  },
+  {
+    path: '/:id', component: DetailComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
