@@ -18,6 +18,14 @@ public class DvD {
     private String rating;
     private String notes;
     
+    public String toString(){
+        return "Title: " + this.title + "\n" 
+                + "Year: " + this.releaseYear + "\n" 
+                + "Director: " + this.directorName + "\n" 
+                + "Rating: " + this.rating + "\n" 
+                + "Notes: " + this.notes + "\n";
+    }
+    
     /**
      * @return the id
      */

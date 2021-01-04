@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AddRoutingModule } from './add-routing.module';
 import { AddComponent } from './add.component';
@@ -9,7 +10,8 @@ import { AddComponent } from './add.component';
   declarations: [AddComponent],
   imports: [
     CommonModule,
-    AddRoutingModule
+    AddRoutingModule,
+    FormsModule
   ]
 })
 export class AddModule { }

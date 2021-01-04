@@ -93,6 +93,8 @@ public class DvDController {
     @PostMapping("/dvd")
     @ResponseStatus(HttpStatus.CREATED)
     public DvD create(@RequestBody DvD dvd) {
+        System.out.println("Dvd create");
+        System.out.println(dvd);
         return dao.add(dvd);
     }
     

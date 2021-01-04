@@ -1,1 +1,89 @@
-<p>add works!</p>
+<div class="container">
+
+  <h1 class="text-center">{{ title }}</h1>
+
+  <div class="row">
+    <div class="col-6" id='formInput'>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+
+        <div
+          id="dvd-data"
+          ngModelGroup="dvdData"
+          #dvdData="ngModelGroup">
+
+          <!-- DVD TITLE -->
+          <div class="form-group">
+            <label for="dvdtitle">Title</label>
+            <input
+              type="text"
+              id="title"
+              class="form-control"
+              ngModel
+              name="title"
+              required>
+          </div> <!-- DVD TITLE -->
+
+          <!-- DVD YEAR -->
+          <div class="form-group">
+            <label for="dvdyear">Release Year</label>
+            <input
+              type="text"
+              id="year"
+              class="form-control"
+              ngModel
+              name="year"
+              maxlength="4" minlength="4"
+              [pattern]="yearPattern"
+              required>
+          </div> <!-- DVD YEAR -->
+
+          <!-- DVD DIRECTOR -->
+          <div class="form-group">
+            <label for="dvddirector">Director</label>
+            <input
+              type="text"
+              id="director"
+              class="form-control"
+              ngModel
+              name="director"
+              required>
+          </div> <!-- DVD DIRECTOR -->
+
+          <!-- DVD RATING -->
+          <div class="form-group">
+            <label for="dvdrating">Rating</label>
+              <select
+                id="rating"
+                class="form-control"
+                [ngModel]="defaultRating"
+                name="rating">
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+              </select>
+          </div>
+
+          <!-- DVD NOTES -->
+          <div class="form-group">
+            <label for="dvdnotes">Notes</label>
+            <textarea
+              id="notes"
+              name="notes"
+              ngModel
+              rows="3"
+              class="form-control"></textarea>
+          </div> <!-- DVD NOTES -->
+
+          <div class="container">
+            <button class="btn btn-danger float-left" routerLink="/">Cancel</button>
+            <button
+              class="btn btn-primary float-right"
+              type="submit"
+              [disabled]="!f.valid">Submit</button>
+          </div>
+
+        </div> <!-- #dvdData-->
+      </form>
+    </div> <!-- formInput -->
+  </div> <!-- row -->
+</div> <!-- container -->

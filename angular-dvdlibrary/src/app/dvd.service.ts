@@ -8,6 +8,15 @@ export class DvdService {
 
   path = 'http://localhost:8080/';
 
+  config = {
+    headers: {
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      "Access-Control-Allow-Methods": "DELETE, POST, GET",
+      "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+      }
+   };
+
   constructor(private http: HttpClient) { }
 
   public getDvdById(dvdId: number) {
@@ -43,27 +52,24 @@ export class DvdService {
   public createDvd(title: string, year: number, director: string, rating: string, notes: string) {
     const url = this.path + 'dvd';
     return this.http.post(url,{
-      params:{
         "title": title,
         "releaseYear": year,
         "director": director,
         "rating": rating,
         "notes": notes
-      }
-    });
+    },
+    this.config);
   }
 
   public updateDvd(dvdId: number, title: string, year: number, director: string, rating: string, notes: string) {
     const url = this.path + 'dvd/' + dvdId;
     return this.http.put(url,{
-      params:{
         "dvdId": dvdId,
         "title": title,
         "releaseYear": year,
         "director": director,
         "rating": rating,
         "notes": notes
-      }
     });
   }
 
