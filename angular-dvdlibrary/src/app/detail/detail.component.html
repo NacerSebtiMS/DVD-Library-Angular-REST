@@ -1,11 +1,11 @@
-<div id="detail">
-  <h2>{{dvd.title | uppercase}}</h2> 
-  <h3>Details</h3>
+<div id="detail" class="container">
+  <h2 class="display2">{{dvd.title | uppercase}}</h2> 
+  <h3 class="my-4">Details</h3>
   <div><strong>ID: </strong>{{ dvd.id }}</div>
   <div><strong>Title:</strong> {{ dvd.title }}</div>
   <div><strong>Release Year:</strong> {{ dvd.releaseYear }}</div>
   <div><strong>Director:</strong> {{ dvd.directorName }}</div>
   <div><strong>Rating:</strong> {{ dvd.rating }}</div>
   <div><strong>Notes:</strong> {{ dvd.notes }}</div>
-  <button routerLink="">Go back</button>
+  <button routerLink="" class="my-5">Go back</button>
 </div>
