@@ -1,8 +1,8 @@
 <div *ngIf="this.router.url === '/'" class="container">
 
   <app-search-bar (selectedSearch)="getSearch($event)"></app-search-bar>
-
   <app-dvd-list [dvds]="dvds"></app-dvd-list>
+
 </div>
 
 

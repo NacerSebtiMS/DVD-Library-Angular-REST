@@ -10,10 +10,15 @@ export class SearchBarComponent implements OnInit {
 
   @ViewChild('f', { static: false }) signupForm: NgForm;
 
-  @Output() selectedSearch = new EventEmitter<JSON>();
+  @Output() selectedSearch = new EventEmitter<Object>();
 
   defaultCategory = "default";
   defaultTerm = "Search Term";
+
+  out = {
+    "category": "",
+    "term": ""
+  }
 
   constructor() { }
 
@@ -21,11 +26,11 @@ export class SearchBarComponent implements OnInit {
   }
 
   onSubmit() {
-    const out = {
+    this.out = {
       "category": this.signupForm.value.category,
       "term": this.signupForm.value.term
     };
-    this.selectedSearch.emit(out);
+    this.selectedSearch.emit(this.out);
   }
 
 }

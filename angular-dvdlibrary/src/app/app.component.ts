@@ -10,7 +10,7 @@ import { DvdService } from './dvd.service';
 export class AppComponent implements OnInit {
   title = 'angular-dvdlibrary';
 
-  dvds = this.getAll();
+  dvds=[];
 
   search = {};
 
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  getSearch(search:JSON){
+  getSearch(search:any){
     this.dvds = [];
     if(search.category === "title"){
       this.dvdlibrary.getDvdByTitle(search.term).subscribe((response:any) => {
