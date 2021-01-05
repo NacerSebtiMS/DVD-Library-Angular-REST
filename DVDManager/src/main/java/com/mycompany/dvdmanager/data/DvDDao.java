@@ -20,16 +20,16 @@ public interface DvDDao {
     List<DvD> getAll();
     
     // Get dvd by title
-    DvD findByTitle(String title);
+    List<DvD> findByTitle(String title);
     
     // get dvd by release year
-    DvD findByReleaseYear(int ry);
+    List<DvD> findByReleaseYear(int ry);
     
     // get dvd by director name
-    DvD findByDirectorName(String dn);
+    List<DvD> findByDirectorName(String dn);
     
     // get dvd by rating
-    DvD findByRating(String rating);
+    List<DvD> findByRating(String rating);
     
     // create a dvd
     DvD add(DvD dvd);

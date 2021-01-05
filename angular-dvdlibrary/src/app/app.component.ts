@@ -14,7 +14,11 @@ export class AppComponent implements OnInit {
 
   search = {};
 
-  constructor(public router: Router, private dvdlibrary: DvdService ) { }
+  constructor(public router: Router, private dvdlibrary: DvdService ) {
+    router.events.subscribe((event) => {
+      this.getAll();
+    });
+  }
 
   ngOnInit() {
     this.getAll();

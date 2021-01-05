@@ -50,35 +50,35 @@ public class DvDDatabaseDao implements DvDDao{
     }
 
     @Override
-    public DvD findByReleaseYear(int ry) {
+    public List<DvD> findByReleaseYear(int ry) {
         final String sql = "SELECT id, title, releaseYear, directorName, rating, notes "
                 + "FROM DVDs WHERE releaseYear = ?;";
 
-        return jdbcTemplate.queryForObject(sql, new DvDMapper(), ry);
+        return jdbcTemplate.query(sql, new DvDMapper(), ry);
     }
 
     @Override
-    public DvD findByDirectorName(String dn) {
+    public List<DvD> findByDirectorName(String dn) {
         final String sql = "SELECT id, title, releaseYear, directorName, rating, notes "
                 + "FROM DVDs WHERE directorName = ?;";
 
-        return jdbcTemplate.queryForObject(sql, new DvDMapper(), dn);
+        return jdbcTemplate.query(sql, new DvDMapper(), dn);
     }
 
     @Override
-    public DvD findByRating(String rating) {
+    public List<DvD> findByRating(String rating) {
         final String sql = "SELECT id, title, releaseYear, directorName, rating, notes "
                 + "FROM DVDs WHERE rating = ?;";
 
-        return jdbcTemplate.queryForObject(sql, new DvDMapper(), rating);
+        return jdbcTemplate.query(sql, new DvDMapper(), rating);
     }
     
     @Override
-    public DvD findByTitle(String title) {
+    public List<DvD> findByTitle(String title) {
         final String sql = "SELECT id, title, releaseYear, directorName, rating, notes "
                 + "FROM DVDs WHERE title = ?;";
 
-        return jdbcTemplate.queryForObject(sql, new DvDMapper(), title);
+        return jdbcTemplate.query(sql, new DvDMapper(), title);
     }
     
     @Override
