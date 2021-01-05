@@ -39,8 +39,8 @@ export class DvdListComponent implements OnInit {
     if(confirm("Are you sure to delete DVD?")){
       this.dvdlibrary.deleteDvd(id)
         .subscribe(
-          response => console.log(response),
-          err => console.log(err)
+          response => alert("DVD deleted!"),
+        err => alert("Error: "+err)
          );
     }
   }

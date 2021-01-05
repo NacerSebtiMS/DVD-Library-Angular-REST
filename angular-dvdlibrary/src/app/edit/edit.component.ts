@@ -42,8 +42,8 @@ export class EditComponent implements OnInit {
 
     this.dvdlibrary.updateDvd(this.dvd.id, this.dvd.title, this.dvd.releaseYear, this.dvd.directorName, this.dvd.rating, this.dvd.notes)
       .subscribe(
-        response => console.log(response),
-        err => console.log(err)
+        response => alert("DVD edited!"),
+        err => alert("Error: "+err)
        );
   }
 

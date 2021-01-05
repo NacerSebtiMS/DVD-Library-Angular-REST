@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {from} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -51,30 +52,57 @@ export class DvdService {
 
   public createDvd(title: string, year: number, director: string, rating: string, notes: string) {
     const url = this.path + 'dvd';
-    return this.http.post(url,{
-        "title": title,
-        "releaseYear": year,
-        "director": director,
-        "rating": rating,
-        "notes": notes
-    },
-    this.config);
+    const data = {
+      "title": title,
+      "releaseYear": year,
+      "directorName": director,
+      "rating": rating,
+      "notes": notes
+    };
+    return this.http.post(url,data);
   }
-
+  
   public updateDvd(dvdId: number, title: string, year: number, director: string, rating: string, notes: string) {
     const url = this.path + 'dvd/' + dvdId;
-    return this.http.put(url,{
-        "dvdId": dvdId,
-        "title": title,
-        "releaseYear": year,
-        "director": director,
-        "rating": rating,
-        "notes": notes
-    });
+    const data = {
+      "id": dvdId,
+      "title": title,
+      "releaseYear": year,
+      "directorName": director,
+      "rating": rating,
+      "notes": notes
+    };
+    return this.http.put(url,data);
   }
 
   public deleteDvd(dvdId: number) {
     const url = this.path + 'dvd/' + dvdId;
     return this.http.delete(url);
   }
+
+/*
+  public updateDvd(dvdId: number, title: string, year: number, director: string, rating: string, notes: string) {
+    const url = this.path + 'dvd/' + dvdId;
+    const dvd = {
+        "dvdId": dvdId,
+        "title": title,
+        "releaseYear": year,
+        "director": director,
+        "rating": rating,
+        "notes": notes
+    };
+
+    return from(
+      fetch(
+        url,
+        {
+          body: JSON.stringify(dvd),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'PUT',
+          mode: 'no-cors'
+        }));
+  }
+  */
 }

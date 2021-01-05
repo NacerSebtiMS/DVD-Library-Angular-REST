@@ -10,6 +10,7 @@ import com.mycompany.dvdmanager.models.DvD;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author nacer
  */
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("")
 public class DvDController {
     private final DvDDao dao;
@@ -93,8 +95,6 @@ public class DvDController {
     @PostMapping("/dvd")
     @ResponseStatus(HttpStatus.CREATED)
     public DvD create(@RequestBody DvD dvd) {
-        System.out.println("Dvd create");
-        System.out.println(dvd);
         return dao.add(dvd);
     }
     
