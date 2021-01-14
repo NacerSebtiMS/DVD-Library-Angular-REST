@@ -9,6 +9,6 @@
     "\\src\\app\\edit",
     "\\src\\app\\search-bar"
   ],
-  "SelectedNode": "\\src\\styles.css",
+  "SelectedNode": "\\src\\app\\add\\add.component.html",
   "PreviewInSolutionExplorer": false
 }
